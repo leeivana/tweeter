@@ -102,7 +102,6 @@ $(document).ready(function(){
     // takes return value and appends it to the tweets container
     for(let i = 0; i < tweets.length; i++){
         createTweetElement(tweets[i]);
-        console.log(tweets[i]);
     }
   }
   return renderTweets(data);
