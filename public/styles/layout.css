@@ -18,8 +18,73 @@ body {
   margin: 0;
   color: #244751;
   background-color: #eee;
+  font-family: "Roboto Condensed", san-serif;
 }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+ nav#nav-bar{
+  width: 100%;
+  height: 80px;
+  background-color: #00a087;
+  padding: 0 2em 0;
+}
+
+#nav-bar .header{
+  color: #e8fdff;
+}
+
+img.logo{
+  width: 80px;
+  height: 80px;
+}
+
+span.header{
+  padding-left: 10px;
+  font-size: 2em;
+  position: relative;
+  top: -25px;
+}
+
+main.container{
+  width: 450px;
+  display: flex;
+  background-color: white;
+  margin: 0 auto;
+  padding: 140px 2em;
+  align-content: center;
+  justify-content: center;
+
+}
+
+section.new-tweet{
+  background-color: #eee;
+  border-radius: 2%;
+  padding: 0 30px 12px;
+  width: 100%;
+
+}
+
+section.new-tweet hr{
+  text-decoration: underline;
+}
+section.new-tweet h2{
+  margin-bottom: 0;
+}
+form textarea{
+  width: 100%;
+}
+span.counter{
+  padding-left: 244px;
+}
+
+.makeRed {
+  color: red;
+}
+
+
+
+
+
