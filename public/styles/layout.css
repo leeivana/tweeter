@@ -125,7 +125,7 @@ article.tweet header{
   justify-content: space-between;
 }
 
-header img {
+header img{
   margin: 10px;
   border-radius: 10%;
 }
@@ -157,6 +157,8 @@ footer p.date{
 
 div.icons i.fas{
   opacity: 0;
+  font-size: 12px;
+  letter-spacing: 5px;
   transition: 0.5s;
 }
 
