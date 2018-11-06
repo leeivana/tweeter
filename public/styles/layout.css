@@ -72,6 +72,7 @@ section.create-tweet{
   padding: 0 30px 12px;
   background-color: #eee;
   border: 1px solid #e8eaed;
+  transition: 0.5s;
 }
 
 section.create-tweet:hover{
@@ -102,6 +103,7 @@ section.new-tweet article{
   border: 1px solid #e8eaed;
   border-radius: 2%;
   margin-top: 20px;
+  transition: 0.5s;
 }
 
 section.new-tweet article:hover{
@@ -153,9 +155,9 @@ footer p.date{
   font-size: 13px;
 }
 
-footer i.fas{
+div.icons i.fas{
   opacity: 0;
-  transition: 1s;
+  transition: 0.5s;
 }
 
 
