@@ -52,5 +52,6 @@ $(document).ready(function(){
       data: datastring,
     });
     loadTweets();
+    $('textarea').val('');
   });
 });
