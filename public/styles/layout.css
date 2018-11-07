@@ -47,10 +47,12 @@ nav#nav-bar button {
   flex-direction: column;
   justify-content: center;
   margin-top: 10px;
+  background-color: #d1e2ff;
+  transition: 0.5s;
 }
-nav#nav-bar button i{
-/*  margin-top: auto;
-*/}
+nav#nav-bar button:hover{
+  background-color: white;
+}
 
 
 img.logo{
@@ -62,8 +64,14 @@ span.header{
   padding-left: 10px;
   font-size: 2em;
   margin-top: 30px;
-  margin-right: 600px;
+  margin-right: 230px;
   width: 40%;
+}
+
+@media (min-width: 768px) {
+  span.header{
+    margin-right: 800px !important;
+  }
 }
 
 main.container{

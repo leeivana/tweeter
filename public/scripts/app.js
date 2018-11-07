@@ -5,6 +5,10 @@
  */
 
 $(document).ready(function(){
+  //focuses and auto selects the textarea
+  const input = $('textarea');
+  input.focus();
+  input.select();
 
   const createTweetElement = (obj) =>{
     const $tweet = $('<article>').attr('class', 'tweet').prependTo('#list');
@@ -53,5 +57,10 @@ $(document).ready(function(){
     });
     loadTweets();
     $('textarea').val('');
+  });
+  //toggle compose button animation
+  $('#compose').on('click', function(){
+    $('#slidingContent').slideToggle('slow');
+    input.select();
   });
 });
