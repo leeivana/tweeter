@@ -13,6 +13,8 @@ $(document).ready(function(){
   $('p#empty').hide();
   $('p#length').hide();
 
+
+
   const createTweetElement = (obj) =>{
     const $tweet = $('<article>').attr('class', 'tweet').prependTo('#list');
     const $header = $('<header>').attr('class', 'head').appendTo($tweet);
@@ -49,6 +51,20 @@ $(document).ready(function(){
     $('#slidingContent').slideToggle('slow');
     input.select();
   });
+
+
+//   $("#pw").keyup(function(event) {
+//     if (event.keyCode === 13) {
+//         $("#myButton").click();
+//     }
+// });
+
+  //Submits when there's a keypress equal to 13 (enter key)
+  $('form').keypress(function(event){
+    if(event.keyCode === 13){
+      $('#submit').click();
+    }
+  })
 
   //AJAX POST request that sends form data to the server
   $('form').on('submit', function(event){

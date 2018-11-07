@@ -47,9 +47,10 @@ nav#nav-bar button {
   flex-direction: column;
   justify-content: center;
   margin-top: 10px;
-  background-color: #d1e2ff;
+  background-color: #efefef;
   transition: 0.5s;
 }
+
 nav#nav-bar button:hover{
   background-color: white;
 }
