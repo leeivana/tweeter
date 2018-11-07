@@ -10,6 +10,9 @@ $(document).ready(function(){
   input.focus();
   input.select();
 
+  $('p#empty').hide();
+  $('p#length').hide();
+
   const createTweetElement = (obj) =>{
     const $tweet = $('<article>').attr('class', 'tweet').prependTo('#list');
     const $header = $('<header>').attr('class', 'head').appendTo($tweet);
@@ -43,10 +46,16 @@ $(document).ready(function(){
 //AJAX POST request that sends form data to the server
   $('form').on('submit', function(event){
     if(!$('textarea').val()){
-      alert('Empty textbox');
+      $('p#empty').slideDown().show();
+      setTimeout(function() {
+        $('p#empty').slideUp('fast');
+      }, 2500);
     }
     if($('textarea').val().length > 140){
-      alert('Character count exceeded');
+      $('p#length').slideDown().show();
+      setTimeout(function(){
+        $('p#length').slideUp('fast');
+      }, 2500);
     }
     event.preventDefault();
     const datastring = $(this).serialize();
@@ -58,6 +67,7 @@ $(document).ready(function(){
     loadTweets();
     $('textarea').val('');
   });
+
   //toggle compose button animation
   $('#compose').on('click', function(){
     $('#slidingContent').slideToggle('slow');
