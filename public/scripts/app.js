@@ -5,19 +5,9 @@
  */
 
 $(document).ready(function(){
-//AJAX POST request that sends form data to the server
-  $('form').on('submit', function(event){
-    const datastring = $(this).serialize();
-    event.preventDefault();
-    $.ajax({
-      method: 'POST',
-      url: '/tweets',
-      data: datastring,
-    });
-  });
 
   const createTweetElement = (obj) =>{
-    const $tweet = $('<article>').attr('class', 'tweet').appendTo('#list');
+    const $tweet = $('<article>').attr('class', 'tweet').prependTo('#list');
     const $header = $('<header>').attr('class', 'head').appendTo($tweet);
       $('<img>').attr('src', obj.user.avatars.small).appendTo($header);
       $('<h2>').text(obj.user.name).attr('class', 'name').appendTo($header);
@@ -32,7 +22,6 @@ $(document).ready(function(){
   }
 
   const renderTweets = (tweets) => {
-            console.log(tweets);
     for(let i in tweets){
         createTweetElement(tweets[i]);
     }
@@ -47,4 +36,21 @@ $(document).ready(function(){
     });
   }
   loadTweets();
+//AJAX POST request that sends form data to the server
+  $('form').on('submit', function(event){
+    if(!$('textarea').val()){
+      alert('Empty textbox');
+    }
+    if($('textarea').val().length > 140){
+      alert('Character count exceeded');
+    }
+    event.preventDefault();
+    const datastring = $(this).serialize();
+    $.ajax({
+      method: 'POST',
+      url: '/tweets',
+      data: datastring,
+    });
+    loadTweets();
+  });
 });
