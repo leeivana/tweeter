@@ -72,9 +72,10 @@ $(document).ready(function(){
       method: 'POST',
       url: '/tweets',
       data: datastring,
+    }).done(function(){
+          $('textarea').val('');
+          loadTweets();
     });
-    loadTweets();
-    $('textarea').val('');
   });
 
 
