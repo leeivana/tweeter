@@ -1,0 +1,49 @@
+//colors
+$color_lemon_grass_approx: #969f90;
+$color_bubbles_approx: #e8fdff;
+$gallery: #efefef;
+$white: white;
+
+@media(min-width: 768px) {
+  span.header {
+    margin-right: 800px !important;
+  }
+}
+nav#nav-bar {
+  width: 100%;
+  height: 80px;
+  background-color: $color_lemon_grass_approx;
+  padding: 0 2em;
+  display: flex;
+  justify-content: space-between;
+  button {
+    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+    border-radius: 10%;
+    height: 60px;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    background-color: $gallery;
+    //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+    transition: 0.5s;
+    letter-spacing: 1px;
+    &:hover {
+      background-color: $white;
+    }
+  }
+}
+#nav-bar .header {
+  color: $color_bubbles_approx;
+}
+img.logo {
+  width: 80px;
+  height: 80px;
+}
+span.header {
+  padding-left: 10px;
+  font-size: 2em;
+  margin-top: 30px;
+  margin-right: 230px;
+  width: 40%;
+}

@@ -1,0 +1,22 @@
+html {
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: inherit;
+}
+*:before {
+  box-sizing: inherit;
+}
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  color: #244751;
+  background-color: #eee;
+  font-family: Roboto Condensed, san-serif;
+}
+
+/*# sourceMappingURL=body.css.map */

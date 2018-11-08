@@ -1,0 +1,38 @@
+section.new-tweet {
+  background-color: white;
+  border-radius: 2%;
+  width: 100%;
+  margin: 0 auto;
+}
+section.create-tweet {
+  padding: 0 30px 12px;
+  background-color: #eee;
+  border: 1px solid #e8eaed;
+  transition: 0.5s;
+}
+section.create-tweet:hover {
+  border: 1px solid black;
+}
+
+#submit {
+  border-radius: 2px;
+  background-color: #ebd2b4;
+}
+
+main.container {
+  width: 450px;
+  display: flex;
+  background-color: white;
+  border-radius: 10px;
+  margin: 30px auto;
+  padding: 30px 2em 140px;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+span.counter {
+  margin-left: 240px;
+}
+
+/*# sourceMappingURL=createTweet.css.map */

@@ -1,0 +1,30 @@
+//colors
+$color_blue_dianne_approx: #244751;
+$color_gallery_approx: #eee;
+
+//fonts
+$font_0: Roboto Condensed;
+$font_1: san-serif;
+
+html {
+  //Instead of the line below you could use @include box-sizing($bs)
+  box-sizing: border-box;
+}
+* {
+  //Instead of the line below you could use @include box-sizing($bs)
+  box-sizing: inherit;
+  &:before {
+    //Instead of the line below you could use @include box-sizing($bs)
+    box-sizing: inherit;
+  }
+  &:after {
+    //Instead of the line below you could use @include box-sizing($bs)
+    box-sizing: inherit;
+  }
+}
+body {
+  margin: 0;
+  color: $color_blue_dianne_approx;
+  background-color: $color_gallery_approx;
+  font-family: $font_0, $font_1;
+}
