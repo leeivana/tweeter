@@ -8,7 +8,6 @@ $black:  black;
 section {
   &.new-tweet {
     background-color: $white;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
     border-radius: 2%;
     width: 100%;
     margin: 0 auto;
@@ -17,7 +16,6 @@ section {
     padding: 0 30px 12px;
     background-color: $color_gallery_approx;
     border: 1px solid $color_mystic_approx;
-    //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
     transition: 0.5s;
     &:hover {
       border: 1px solid $black;
@@ -25,7 +23,6 @@ section {
   }
 }
 #submit {
-  //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
   border-radius: 2px;
   background-color: $color_just_right_approx;
 }
@@ -33,7 +30,6 @@ main.container {
   width: 450px;
   display: flex;
   background-color: $white;
-  //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
   border-radius: 10px;
   margin: 30px auto;
   padding: 30px 2em 140px;

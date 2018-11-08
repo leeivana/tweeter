@@ -44,6 +44,7 @@ $(document).ready(function(){
       },
     });
   }
+
   loadTweets();
 
   //toggle compose button animation
@@ -51,13 +52,6 @@ $(document).ready(function(){
     $('#slidingContent').slideToggle('slow');
     input.select();
   });
-
-
-//   $("#pw").keyup(function(event) {
-//     if (event.keyCode === 13) {
-//         $("#myButton").click();
-//     }
-// });
 
   //Submits when there's a keypress equal to 13 (enter key)
   $('form').keypress(function(event){
