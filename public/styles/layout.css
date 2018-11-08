@@ -28,7 +28,7 @@ body {
  nav#nav-bar{
   width: 100%;
   height: 80px;
-  background-color: #68a2ff;
+  background-color: #969F90;
   padding: 0 2em 0;
   display: flex;
   justify-content: space-between;
@@ -40,15 +40,14 @@ body {
 
 nav#nav-bar button {
   border-radius: 10%;
-  width: 60px;
   height: 60px;
   font-size: 12px;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   margin-top: 10px;
   background-color: #efefef;
   transition: 0.5s;
+  letter-spacing: 1px;
 }
 
 nav#nav-bar button:hover{
@@ -102,8 +101,17 @@ section.create-tweet{
   transition: 0.5s;
 }
 
+#submit {
+  border-radius: 2px;
+  background-color: #EBD2B4;
+}
+
 section.create-tweet:hover{
   border: 1px solid black;
+}
+
+span.counter{
+  margin-left: 240px;
 }
 
 section.new-tweet hr{
