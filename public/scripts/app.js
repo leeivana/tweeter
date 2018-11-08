@@ -3,16 +3,22 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-
 $(document).ready(function(){
   //focuses and auto selects the textarea
   const input = $('textarea');
   input.focus();
   input.select();
 
+
   $('p#empty').hide();
   $('p#length').hide();
 
+  const getTime = (mil) => {
+    const dayCreated = String(new Date(mil)).split(' ');
+    const dateString = dayCreated.slice(0,4).join(' ');
+    const time = dayCreated.slice(4, 5).join(' ').slice(0, 5);
+    return `${time} - ${dateString}`;
+  };
 
 
   const createTweetElement = (obj) =>{
@@ -23,7 +29,7 @@ $(document).ready(function(){
       $('<p>').text(obj.user.handle).attr('class', 'userID').appendTo($header);
       $('<p>').text(obj.content.text).attr('class', 'tweet-content').appendTo($tweet);
     const $footer = $('<footer>').attr('class', 'foot').appendTo($tweet);
-      $('<p>').text(obj.created_at).attr('class', 'date').appendTo($footer);
+      $('<p>').text(getTime(obj.created_at)).attr('class', 'date').appendTo($footer);
     const $icons = $('<div>').attr('class', 'icons').appendTo($footer);
       $('<i>').attr('class', 'fas fa-flag').appendTo($icons);
       $('<i>').attr('class', 'fas fa-retweet').appendTo($icons);
@@ -84,6 +90,7 @@ $(document).ready(function(){
       data: datastring,
     }).done(function(){
           $('textarea').val('');
+          $('#list').empty();
           loadTweets();
     });
   });
