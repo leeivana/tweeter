@@ -23,16 +23,17 @@ module.exports = function(DataHelpers) {
       return;
     }
 
-    const user = req.body.user ? req.body.user : userHelper.generateRandomUser();
+    const user = req.body.user || userHelper.generateRandomUser();
     const tweet = {
       user: user,
       content: {
         text: req.body.text
       },
+      //likes: 0
       created_at: Date.now()
     };
 
-    DataHelpers.saveTweet(tweet, (err) => {
+    DataHelpers.saveTweet(tweet, err => {
       if (err) {
         res.status(500).json({ error: err.message });
       } else {
@@ -40,6 +41,8 @@ module.exports = function(DataHelpers) {
       }
     });
   });
+
+
 
   return tweetsRoutes;
 

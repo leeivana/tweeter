@@ -3,6 +3,7 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
+
 $(document).ready(function(){
   //focuses and auto selects the textarea
   const input = $('textarea');
@@ -19,7 +20,6 @@ $(document).ready(function(){
     const time = dayCreated.slice(4, 5).join(' ').slice(0, 5);
     return `${time} - ${dateString}`;
   };
-
 
   const createTweetElement = (obj) =>{
     const $tweet = $('<article>').attr('class', 'tweet').prependTo('#list');
@@ -48,6 +48,9 @@ $(document).ready(function(){
       success: function(data){
         renderTweets(data);
       },
+      error: function(err){
+        console.error(err);
+      }
     });
   }
 
@@ -64,10 +67,11 @@ $(document).ready(function(){
     if(event.keyCode === 13){
       $('#submit').click();
     }
-  })
+  });
 
   //AJAX POST request that sends form data to the server
   $('form').on('submit', function(event){
+    event.preventDefault();
     if(!$('textarea').val()){
       $('p#empty').slideDown().show();
       setTimeout(function() {
@@ -82,12 +86,14 @@ $(document).ready(function(){
       }, 2500);
       return false;
     }
-    event.preventDefault();
     const datastring = $(this).serialize();
     $.ajax({
       method: 'POST',
       url: '/tweets',
       data: datastring,
+      error: function(err){
+        console.error(err);
+      },
     }).done(function(){
           $('textarea').val('');
           $('#list').empty();
