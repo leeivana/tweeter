@@ -133,7 +133,7 @@ section.new-tweet article:hover {
   border: 1px solid black;
   color: #2c4227;
 }
-section.new-tweet article:hover footer i.fas {
+section.new-tweet article:hover footer i.fas, section.new-tweet article:hover button.fas {
   opacity: 1;
 }
 
@@ -175,7 +175,7 @@ footer p.date {
   font-size: 13px;
 }
 
-div.icons i.fas {
+div.icons i.fas, button.fas {
   opacity: 0;
   font-size: 12px;
   letter-spacing: 5px;

@@ -10,7 +10,6 @@ $(document).ready(function(){
   input.focus();
   input.select();
 
-
   $('p#empty').hide();
   $('p#length').hide();
 
@@ -24,6 +23,7 @@ $(document).ready(function(){
   const createTweetElement = (obj) =>{
     const $tweet = $('<article>').attr('class', 'tweet').prependTo('#list');
     const $header = $('<header>').attr('class', 'head').appendTo($tweet);
+
       $('<img>').attr('src', obj.user.avatars.small).appendTo($header);
       $('<h2>').text(obj.user.name).attr('class', 'name').appendTo($header);
       $('<p>').text(obj.user.handle).attr('class', 'userID').appendTo($header);
@@ -33,8 +33,17 @@ $(document).ready(function(){
     const $icons = $('<div>').attr('class', 'icons').appendTo($footer);
       $('<i>').attr('class', 'fas fa-flag').appendTo($icons);
       $('<i>').attr('class', 'fas fa-retweet').appendTo($icons);
-      $('<i>').attr('class', 'fas fa-heart').appendTo($icons);
-  }
+    const $likeButton = $('<i>').attr('class', 'fas fa-heart').appendTo($icons);
+
+    $($likeButton).on('click', function(event){
+      if(!$tweet.data('likes')){
+        $tweet.data('likes', 0);
+      }
+      let i = $tweet.data('likes');
+      $tweet.data('likes', i+1);
+      console.log($tweet.data('likes'));
+    });
+  };
 
   const renderTweets = (tweets) => {
     for(let i in tweets){
@@ -52,9 +61,13 @@ $(document).ready(function(){
         console.error(err);
       }
     });
-  }
+  };
 
   loadTweets();
+
+  $('nav').on('click', function(event){
+    alert(event.target);
+  });
 
   //toggle compose button animation
   $('#compose').on('click', function(){
@@ -100,6 +113,4 @@ $(document).ready(function(){
           loadTweets();
     });
   });
-
-
 });
