@@ -20,7 +20,7 @@ section.create-tweet:hover {
 }
 
 main.container {
-  width: 450px;
+  width: 50%;
   display: flex;
   background-color: white;
   border-radius: 10px;
@@ -32,7 +32,7 @@ main.container {
 }
 
 span.counter {
-  margin-left: 240px;
+  margin-left: 510px;
 }
 
 /*# sourceMappingURL=createTweet.css.map */

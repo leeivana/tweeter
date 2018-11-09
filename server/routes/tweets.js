@@ -1,7 +1,6 @@
 "use strict";
 
 const userHelper    = require("../lib/util/user-helper")
-
 const express       = require('express');
 const tweetsRoutes  = express.Router();
 
@@ -17,6 +16,18 @@ module.exports = function(DataHelpers) {
     });
   });
 
+  tweetsRoutes.put("/:id", function(req, res) {
+    DataHelpers.getLikes(req.params.id, { $set: {likes: req.body.like}}, err => {
+      if (err) {
+        res.status(500).json({ error: err.message });
+      } else {
+        res.status(201).send();
+      };
+    });
+  });
+
+// db.collection('tweets').findByIdAndUpdate({_id: req.params.id}, {likes: req.body});
+
   tweetsRoutes.post("/", function(req, res) {
     if (!req.body.text) {
       res.status(400).json({ error: 'invalid request: no data in POST body'});
@@ -29,7 +40,7 @@ module.exports = function(DataHelpers) {
       content: {
         text: req.body.text
       },
-      //likes: 0
+      likes: 0,
       created_at: Date.now()
     };
 

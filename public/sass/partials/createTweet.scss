@@ -27,7 +27,7 @@ section {
   background-color: $color_just_right_approx;
 }
 main.container {
-  width: 450px;
+  width: 50%;
   display: flex;
   background-color: $white;
   border-radius: 10px;
@@ -38,5 +38,5 @@ main.container {
   flex-direction: column;
 }
 span.counter {
-  margin-left: 240px;
+  margin-left: 510px;
 }

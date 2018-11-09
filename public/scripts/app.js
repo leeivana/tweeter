@@ -20,10 +20,24 @@ $(document).ready(function(){
     return `${time} - ${dateString}`;
   };
 
+  const updateLikes = (info, id) => {
+    // const dataString = ''//null;
+    $.ajax({
+      method: 'PUT',
+      url: `/tweets/${id}`,
+      data: `like=${info}`,
+      // success: function(){
+      //     $('#list').empty();
+      // },
+      error: function(err){
+        console.error(err);
+      }
+    });
+  };
+
   const createTweetElement = (obj) =>{
     const $tweet = $('<article>').attr('class', 'tweet').prependTo('#list');
     const $header = $('<header>').attr('class', 'head').appendTo($tweet);
-
       $('<img>').attr('src', obj.user.avatars.small).appendTo($header);
       $('<h2>').text(obj.user.name).attr('class', 'name').appendTo($header);
       $('<p>').text(obj.user.handle).attr('class', 'userID').appendTo($header);
@@ -33,17 +47,25 @@ $(document).ready(function(){
     const $icons = $('<div>').attr('class', 'icons').appendTo($footer);
       $('<i>').attr('class', 'fas fa-flag').appendTo($icons);
       $('<i>').attr('class', 'fas fa-retweet').appendTo($icons);
-    const $likeButton = $('<i>').attr('class', 'fas fa-heart').appendTo($icons);
+    const $likeButton = $('<i>').attr('class', 'fas fa-heart').text(obj.likes).appendTo($icons);
+    console.log(obj.likes);
 
-    $($likeButton).on('click', function(event){
-      if(!$tweet.data('likes')){
-        $tweet.data('likes', 0);
+    $($likeButton).on('click', function(){
+      if($tweet.data('likes')){
+        obj.likes --;
+        $tweet.data('likes', false);
+        console.log(obj.likes);
+      }else{
+        obj.likes ++;
+        $tweet.data('likes', true);
+        console.log(obj.likes);
       }
-      let i = $tweet.data('likes');
-      $tweet.data('likes', i+1);
-      console.log($tweet.data('likes'));
+      let data = obj.likes;
+      updateLikes(data, obj._id);
+      $likeButton.text(obj.likes);
     });
   };
+
 
   const renderTweets = (tweets) => {
     for(let i in tweets){
@@ -64,10 +86,6 @@ $(document).ready(function(){
   };
 
   loadTweets();
-
-  $('nav').on('click', function(event){
-    alert(event.target);
-  });
 
   //toggle compose button animation
   $('#compose').on('click', function(){
@@ -98,8 +116,11 @@ $(document).ready(function(){
         $('p#length').slideUp('fast');
       }, 2500);
       return false;
+
     }
+
     const datastring = $(this).serialize();
+
     $.ajax({
       method: 'POST',
       url: '/tweets',

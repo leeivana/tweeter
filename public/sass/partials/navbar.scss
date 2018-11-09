@@ -6,7 +6,6 @@ $white: white;
 
 @media(min-width: 768px) {
   span.header {
-    margin-right: 800px !important;
   }
 }
 nav#nav-bar {
@@ -33,6 +32,7 @@ nav#nav-bar {
 }
 #nav-bar .header {
   color: $color_bubbles_approx;
+  flex: auto;
 }
 img.logo {
   width: 80px;

@@ -3,6 +3,7 @@
 // Simulates the kind of delay we see with network or filesystem operations
 
 // Defines helper functions for saving and getting tweets, using the database `db`
+const mongo       = require('mongodb');
 
 module.exports = function makeDataHelpers(db) {
   return {
@@ -19,6 +20,22 @@ module.exports = function makeDataHelpers(db) {
     // Get all tweets in `db`, sorted by newest first
     getTweets: function(callback) {
         db.collection('tweets').find().toArray(callback);
+    },
+
+    getLikes: function(id, replace, callback){
+        try{
+            db.collection('tweets').findOneAndUpdate({_id: new mongo.ObjectID(id)}, replace, (err, response) => {
+                if (err){
+                    callback(err);
+                }
+                console.log(response);
+                console.log(id, replace);
+                callback(null);
+            })
+        } catch (err) {
+            callback(err);
+        }
     }
+
   };
 }

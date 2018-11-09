@@ -1,8 +1,3 @@
-@media (min-width: 768px) {
-  span.header {
-    margin-right: 800px !important;
-  }
-}
 nav#nav-bar {
   width: 100%;
   height: 80px;
@@ -28,6 +23,7 @@ nav#nav-bar button:hover {
 
 #nav-bar .header {
   color: #e8fdff;
+  flex: auto;
 }
 
 img.logo {
@@ -86,7 +82,7 @@ section.create-tweet:hover {
 }
 
 main.container {
-  width: 450px;
+  width: 50%;
   display: flex;
   background-color: white;
   border-radius: 10px;
@@ -98,7 +94,7 @@ main.container {
 }
 
 span.counter {
-  margin-left: 240px;
+  margin-left: 510px;
 }
 
 section.new-tweet hr {
