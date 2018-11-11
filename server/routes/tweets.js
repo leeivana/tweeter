@@ -26,8 +26,6 @@ module.exports = function(DataHelpers) {
     });
   });
 
-// db.collection('tweets').findByIdAndUpdate({_id: req.params.id}, {likes: req.body});
-
   tweetsRoutes.post("/", function(req, res) {
     if (!req.body.text) {
       res.status(400).json({ error: 'invalid request: no data in POST body'});
