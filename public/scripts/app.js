@@ -10,9 +10,12 @@ $(document).ready(function(){
   input.focus();
   input.select();
 
+  //hides the error messages
   $('p#empty').hide();
   $('p#length').hide();
 
+
+  //function to convert the miliseconds to time and date
   const getTime = (mil) => {
     const dayCreated = String(new Date(mil)).split(' ');
     const dateString = dayCreated.slice(0,4).join(' ');
@@ -20,15 +23,12 @@ $(document).ready(function(){
     return `${time} - ${dateString}`;
   };
 
+  //put request to putdate the amount of likes for a certain tweet in the database
   const updateLikes = (info, id) => {
-    // const dataString = ''//null;
     $.ajax({
       method: 'PUT',
       url: `/tweets/${id}`,
       data: `like=${info}`,
-      // success: function(){
-      //     $('#list').empty();
-      // },
       error: function(err){
         console.error(err);
       }
@@ -48,17 +48,14 @@ $(document).ready(function(){
       $('<i>').attr('class', 'fas fa-flag').appendTo($icons);
       $('<i>').attr('class', 'fas fa-retweet').appendTo($icons);
     const $likeButton = $('<i>').attr('class', 'fas fa-heart').text(obj.likes).appendTo($icons);
-    console.log(obj.likes);
 
     $($likeButton).on('click', function(){
       if($tweet.data('likes')){
         obj.likes --;
         $tweet.data('likes', false);
-        console.log(obj.likes);
       }else{
         obj.likes ++;
         $tweet.data('likes', true);
-        console.log(obj.likes);
       }
       let data = obj.likes;
       updateLikes(data, obj._id);
@@ -85,6 +82,7 @@ $(document).ready(function(){
     });
   };
 
+  //calling loadTweets function so it renders all the tweets on intial page load
   loadTweets();
 
   //toggle compose button animation

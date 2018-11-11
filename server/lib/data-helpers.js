@@ -22,6 +22,7 @@ module.exports = function makeDataHelpers(db) {
         db.collection('tweets').find().toArray(callback);
     },
 
+    // Update the amount of likes for a certain tweet in `db`
     getLikes: function(id, replace, callback){
         try{
             db.collection('tweets').findOneAndUpdate({_id: new mongo.ObjectID(id)}, replace, (err, response) => {
