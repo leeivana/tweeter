@@ -4,10 +4,10 @@ Tweeter is a simple, single-page AJAX-based Twitter clone that uses HTML5, jQuer
 
 
 ## Screenshots
-!['Screenshot of Main Page'](url).
-!['Screenshot of Tweets'](url).
-!['Screenshot of Error Message when Length is Exceeded'](url).
-!['Screenshot of Error Message when Submitting Empty textbox'](url).
+!['Screenshot of Main Page'](https://github.com/leeivana/tweeter/blob/master/public/docs/main-page-tweeter.png).
+!['Screenshot of Tweets'](https://github.com/leeivana/tweeter/blob/master/public/docs/show-tweets.png).
+!['Screenshot of Error Message when Length is Exceeded'](https://github.com/leeivana/tweeter/blob/master/public/docs/length-exceeded-error.png).
+!['Screenshot of Error Message when Submitting Empty textbox'](https://github.com/leeivana/tweeter/blob/master/public/docs/empty-tweet-error.png).
 
 ## Dependencies
 
