@@ -29,8 +29,6 @@ module.exports = function makeDataHelpers(db) {
                 if (err){
                     callback(err);
                 }
-                console.log(response);
-                console.log(id, replace);
                 callback(null);
             })
         } catch (err) {
