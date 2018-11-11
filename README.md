@@ -13,4 +13,10 @@ Tweeter is a simple, single-page AJAX-based Twitter clone that uses HTML5, jQuer
 
 - Express
 - Node 5.10.x or above
+- body-parser
+- Chance
 - MongoDB
+
+## Getting Started
+- Install all the dependencies (using the `npm install` command).
+- Run the server using the `node server/index.js` command).
