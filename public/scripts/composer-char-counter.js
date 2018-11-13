@@ -6,4 +6,5 @@ $(document).ready(function(){
     $counter.toggleClass('makeRed', remaining < 0);
     $counter.text(remaining);
   });
+  $counter.val('');
 });

@@ -14,7 +14,6 @@ $(document).ready(function(){
   $('p#empty').hide();
   $('p#length').hide();
 
-
   //function to convert the miliseconds to time and date
   const getTime = (mil) => {
     const dayCreated = String(new Date(mil)).split(' ');
@@ -63,10 +62,9 @@ $(document).ready(function(){
     });
   };
 
-
   const renderTweets = (tweets) => {
     for(let i in tweets){
-        createTweetElement(tweets[i]);
+      createTweetElement(tweets[i]);
     }
   }
   const loadTweets = () =>{
@@ -114,7 +112,6 @@ $(document).ready(function(){
         $('p#length').slideUp('fast');
       }, 2500);
       return false;
-
     }
 
     const datastring = $(this).serialize();
@@ -127,9 +124,9 @@ $(document).ready(function(){
         console.error(err);
       },
     }).done(function(){
-          $('textarea').val('');
-          $('#list').empty();
-          loadTweets();
+        $('textarea').val('');
+        $('#list').empty();
+        loadTweets();
     });
   });
 });
